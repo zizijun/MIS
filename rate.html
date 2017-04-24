@@ -19,6 +19,7 @@
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-table.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -123,7 +124,7 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">理财产品推荐
+                <h1 class="page-header"> 利率、汇率同行比价
                     <!--<small>Subheading</small>-->
                 </h1>
                 <ol class="breadcrumb">
@@ -137,53 +138,12 @@
 
         <div class="panel panel-danger">
           <div class="panel-body">
-            我行当前利率：0.03%
+            我行当前活期年利率(%):0.34，定期年利率（三个月、半年、一年、二年、三年、五年）:1.84, 2.05, 2.20, 2.75, 3.25, 3.35
           </div>
         </div>
         <div class="alert alert-danger" role="alert">当前资金存量不足</div>
         <!-- Content Row -->
-        <table class="table ">
-        <thead>
-            <tr>
-
-                <th>银行名称</th>
-                <th>日期</th>
-                <th>利率</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>招商银行</td>
-                <td>2017年4月20日</td>
-                <td>0.01%</td>
-            </tr>
-            <tr>
-                <td>招商银行</td>
-                <td>2017年4月20日</td>
-                <td>0.01%</td>
-            </tr>
-            <tr>
-                <td>招商银行</td>
-                <td>2017年4月20日</td>
-                <td>0.01%</td>
-            </tr>
-            <tr>
-                <td>招商银行</td>
-                <td>2017年4月20日</td>
-                <td>0.01%</td>
-            </tr>
-            <tr>
-                <td>招商银行</td>
-                <td>2017年4月20日</td>
-                <td>0.01%</td>
-            </tr>
-
-            <tr class="success">
-                <td>农商银行</td>
-                <td>2017年4月20日</td>
-                <td>0.02%</td>
-            </tr>
-            </tbody>
+        <table class="table " id="table">
         </table>
             
         <!-- /.row -->
@@ -233,8 +193,50 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-    
+    <script src="js/bootstrap-table.min.js"></script>
+   <script src="js/bootstrap-table-zh-CN.min.js"></script>
    
+   <script type="text/javascript">
+       $("#table").bootstrapTable({
+        columns:[
+            [{field:"bank", title:"银行名称", colspan:1, rowspan:2,valign:"middle",
+                        align:"center"}, {field:"time", title:"日期",colspan:1,rowspan:2,valign:"middle",
+                        align:"center"}, {field:"flexrate", title:"活期（年利率%）",colspan:1,rowspan:2,valign:"middle",
+                        align:"center"}, {title:"定期（年利率%）", colspan:6,rowspan:1,valign:"middle",
+                        align:"center"}],
+            [{field:"t1", title:"三个月",valign:"middle",
+                        align:"center"},{field:"t2", title:"半年",valign:"middle",
+                        align:"center"},{field:"t3", title:"一年",valign:"middle",
+                        align:"center"},{field:"t4", title:"二年",valign:"middle",
+                        align:"center"},{field:"t5", title:"三年",valign:"middle",
+                        align:"center"},{field:"t6", title:"五年",valign:"middle",
+                        align:"center"}]
+        ],
+        data:[
+        {
+            bank:"工商银行", time:"2017年4月25日", flexrate:"0.35", t1:"1.85", t2:"2.05",t3:"2.25",t4:"2.75",t5:"3.25",t6:"3.35"
+        },
+        {
+            bank:"建设银行", time:"2017年4月25日", flexrate:"0.35", t1:"1.85", t2:"2.05",t3:"2.25",t4:"2.75",t5:"3.25",t6:"3.35"
+        },
+        {
+            bank:"农业银行", time:"2017年4月25日", flexrate:"0.35", t1:"1.85", t2:"2.05",t3:"2.25",t4:"2.75",t5:"3.25",t6:"3.35"
+        },
+        {
+            bank:"招商银行", time:"2017年4月25日", flexrate:"0.35", t1:"1.85", t2:"2.05",t3:"2.25",t4:"2.75",t5:"3.25",t6:"3.35"
+        },
+        {
+            bank:"民生银行", time:"2017年4月25日", flexrate:"0.385", t1:"2", t2:"2.25",t3:"2.5",t4:"3",t5:"3.6",t6:"3.7"
+        },
+        {
+            bank:"交通银行", time:"2017年4月25日", flexrate:"0.35", t1:"1.85", t2:"2.05",t3:"2.25",t4:"2.75",t5:"3.25",t6:"3.35"
+        },
+        {
+            bank:"上海银行", time:"2017年4月25日", flexrate:"0.35", t1:"2.02", t2:"2.26",t3:"2.5",t4:"2.91",t5:"3.25",t6:"3.5"
+        }
+        ]
+       });
+   </script>
 
 </body>
 
